@@ -14,6 +14,12 @@ public class HomePage extends PageBase {
     private WebElement pic;
     @FindBy(xpath = "//*[@id='contact-link']//a[contains(text(),'Contact us')]")
     private WebElement contactUs;
+    @FindBy(xpath = "//button[@name='submit_search']")
+    private WebElement searchButton;
+    @FindBy(xpath = "//input[@id='search_query_top']")
+    private WebElement searchBox;
+    @FindBy(xpath = "//p[@class='alert alert-warning']")
+    private WebElement NoResultFound;
 
     public HomePage(){
         super();
@@ -30,6 +36,16 @@ public class HomePage extends PageBase {
         contactUs.click();
     }
 
+    public void searchFunctionality(String element){
+        highlight(searchBox);
+        searchBox.sendKeys(element);
+        searchButton.click();
+    }
+
+    public void verifyNoResultFound(String expectedMsg){
+        String msg = NoResultFound.getText();
+        Assert.assertEquals(msg,expectedMsg);
+    }
     public void verifyPageLogo(){
         highlight(pic);
         boolean logo = pic.isDisplayed();
