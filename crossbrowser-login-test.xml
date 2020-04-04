@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestSuite" parallel="tests" thread-count="3">
+
+    <listeners>
+        <listener class-name="com.automationpractice.utils.AnnotationTransformer"/>
+    </listeners>
+
+    <test name="HomePageTest-chrome">
+        <parameter name="browserName" value="grid_chrome_16"/>
+        <classes>
+            <class name="com.automationpractice.tests.HomePageTest" />
+            <class name="com.automationpractice.tests.LoginFunctionalityTest" />
+        </classes>
+    </test>
+
+    <test name="HomePageTest-firefox">
+        <parameter name="browserName" value="grid_firefox_16"/>
+        <classes>
+            <class name="com.automationpractice.tests.HomePageTest" />
+            <class name="com.automationpractice.tests.LoginFunctionalityTest" />
+        </classes>
+    </test>
+
+</suite>
