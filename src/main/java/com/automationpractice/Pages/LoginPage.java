@@ -14,7 +14,7 @@ public class LoginPage extends PageBase {
 
     @FindBy(id = "SubmitLogin")
     private WebElement signInButton;
-
+    //public WebElement signInButton = waitForElementDisplayed(By.id("SubmitLogin']"),10);
     @FindBy(className = "logout")
     private WebElement signOutLink;
 

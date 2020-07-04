@@ -27,7 +27,7 @@ public class HomePage extends PageBase {
     }
 
     public void navigateToLoginPage(){
-        highlight(loginLink);
+        //highlight(loginLink);
         loginLink.click();
     }
 

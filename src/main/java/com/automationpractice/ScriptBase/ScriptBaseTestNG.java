@@ -2,21 +2,11 @@ package com.automationpractice.ScriptBase;
 
 import com.automationpractice.Pages.HomePage;
 import com.automationpractice.Pages.LoginPage;
+import com.automationpractice.Pages.PageBase;
 import com.automationpractice.utils.DriverFactory;
-import com.automationpractice.utils.GetPageScreenShot;
 import com.automationpractice.utils.RandomTestData;
 import com.automationpractice.utils.WebElementUtils;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.ChartLocation;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.FileInputStream;
@@ -27,89 +17,62 @@ import java.util.concurrent.TimeUnit;
 
 public class ScriptBaseTestNG {
 
+    public enum BrowserType{
+        CHROME,
+        FIREFOX,
+        CLOUD_CHROME,
+        CLOUD_FIREFOX,
+        CLOUD_IE,
+        GRID_CHROME,
+        GRID_FIREFOX,
+        GRID_IE
+    }
+
     protected WebDriver driver;
     protected WebElementUtils webElementUtils;
+    public PageBase pageBase;
     protected HomePage homePage;
     protected LoginPage loginPage;
     protected RandomTestData randomTestData;
-    //builds a new report using the html template
-    public static ExtentHtmlReporter htmlReporter;
-    public static ExtentReports extent;
-    public static ExtentTest test;
+    public Properties prop;
 
-    @BeforeSuite
+    @BeforeTest
     public void beforeTest() throws IOException, InterruptedException {
-        Runtime.getRuntime().exec(System.getProperty("user.dir") + "/start_dockergrid.bat");
-        Thread.sleep(15000);
-        // initialize the HtmlReporter
-        htmlReporter = new ExtentHtmlReporter("cmd /c start" + System.getProperty("user.dir") +"/src/test/resources/test-output/testReport.html");
 
-        //initialize ExtentReports and attach the HtmlReporter
-        extent = new ExtentReports();
-        extent.attachReporter(htmlReporter);
-
-        //add content, manage tests etc
-        htmlReporter.config().setChartVisibilityOnOpen(true);
-        htmlReporter.config().setDocumentTitle("Extent Report");
-        htmlReporter.config().setReportName("Automation Practice Test Report");
-        htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
-        htmlReporter.config().setTheme(Theme.DARK);
-        htmlReporter.loadConfig(System.getProperty("user.dir") +"/src/test/resources/extent-config.xml");
     }
+    //chrome,firefox,ie,grid_chrome_16,grid_firefox_16,grid_ie_16
+    @BeforeMethod(alwaysRun = true)
+    @Parameters({"browserName", "env"})
+    public void beforeMethod(@Optional(value = ("chrome")) String browserName, @Optional(value = ("dev")) String env) throws InterruptedException, IOException {
 
-    @BeforeMethod
-    @Parameters({"browserName"})
-    public void beforeMethod() {
-        driver = DriverFactory.getInstance(DriverFactory.BrowserType.CHROME.toString()).getDriver();
+        driver = DriverFactory.getInstance(browserName).getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().timeouts().setScriptTimeout(10,TimeUnit.SECONDS);
         driver.manage().deleteAllCookies();
 
+        pageBase = new PageBase();
         webElementUtils = new WebElementUtils();
         homePage = new HomePage();
         loginPage = new LoginPage();
         randomTestData = new RandomTestData();
-        driver.get(loadDataFromPropertiesFile("url", "page.properties"));
+        prop = pageBase.init_prop(env);
+        driver.get(prop.getProperty("url"));
+    }
+
+    @AfterTest
+    public void endReport() {
+
+        //extent.flush();
     }
 
     @AfterMethod
-    public void afterMethod(ITestResult result) throws Exception {
-        if(result.getStatus() == ITestResult.FAILURE) {
-            String screenShotPath = GetPageScreenShot.capture(driver, result.getTestName());
-            test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()+"Test case FAILED due to below issues ", ExtentColor.RED));
-            //test.fail(result.getThrowable());
-            //test.log(Status.FAIL, MediaEntityBuilder.addScreenCaptureFromPath(screenShotPath));
-            //test.fail("Snapshot below: " + test.addScreenCaptureFromPath(screenShotPath));
-            test.fail(result.getThrowable().getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(screenShotPath).build());
-        }
-        else if(result.getStatus() == ITestResult.SUCCESS) {
-            String screenShotPath = GetPageScreenShot.capture(driver, result.getName());
-            test.log(Status.PASS, MarkupHelper.createLabel(result.getName()+" PASSED ", ExtentColor.GREEN));
-            test.pass("Snapshot below: " + test.addScreenCaptureFromPath(screenShotPath));
-        }
-        else {
-            test.log(Status.SKIP, MarkupHelper.createLabel(result.getName()+" SKIPPED ", ExtentColor.ORANGE));
-            test.skip(result.getThrowable());
-        }
-        extent.flush();
-        DriverFactory.getInstance().removeDriver();
-
-    }
-
-    @AfterClass
     public void afterClass() {
         webElementUtils = null;
         homePage = null;
         loginPage = null;
-    }
-
-    @AfterSuite
-    public void afterSuite() throws IOException, InterruptedException {
-        //Runtime.getRuntime().exec("cmd /c start stop_dockergrid.bat");
-        //Thread.sleep(5000);
-
-        //Runtime.getRuntime().exec("taskkill /f /im cmd.exe");
+        driver  =null;
+        DriverFactory.getInstance().removeDriver();
     }
 
     protected String loadDataFromPropertiesFile(String string,String fileName) {

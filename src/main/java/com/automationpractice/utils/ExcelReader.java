@@ -20,7 +20,9 @@ public class ExcelReader {
 
     private Workbook workbook = null;
 
+
     public ExcelReader(String fileName) {
+
         File file = new File(fileName);
         try {
             FileInputStream fileStream = new FileInputStream(file);
@@ -47,7 +49,7 @@ public class ExcelReader {
         String[] data = null;
         if (workbook != null) {
             int sheetIndex = workbook.getSheetIndex(sheetName);
-            data = getExcelRowData(sheetIndex, row);
+            //data = getExcelRowData(sheetIndex, row);
         }
         return data;
     }
@@ -59,7 +61,8 @@ public class ExcelReader {
      * @param row
      * @return String[]
      */
-    public String[] getExcelRowData(int sheetNumber, int row) {
+    public String[] getExcelRowData(String fileName, int sheetNumber, int row) {
+
         String[] data = null;
         if (workbook != null) {
             Sheet sheet = workbook.getSheetAt(sheetNumber);

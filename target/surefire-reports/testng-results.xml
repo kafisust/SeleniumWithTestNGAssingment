@@ -1,133 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="2" total="7" passed="5">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="71691" started-at="2020-03-21T22:02:26Z" finished-at="2020-03-21T22:03:38Z">
+  <suite name="GroupRun" duration-ms="26977" started-at="2020-07-04T14:23:48 CDT" finished-at="2020-07-04T14:24:15 CDT">
     <groups>
+      <group name="regression">
+        <method signature="HomePageTest.navigateToLoginPage()[pri:0, instance:com.automationpractice.tests.HomePageTest@57baeedf]" name="navigateToLoginPage" class="com.automationpractice.tests.HomePageTest"/>
+        <method signature="LoginFunctionalityTest.signInWithInvalidCredentials()[pri:1, instance:com.automationpractice.tests.LoginFunctionalityTest@343f4d3d]" name="signInWithInvalidCredentials" class="com.automationpractice.tests.LoginFunctionalityTest"/>
+      </group> <!-- regression -->
       <group name="smoke-test">
-        <method signature="HomePageTest.Search()[pri:2, instance:com.automationpractice.tests.HomePageTest@34b7bfc0]" name="Search" class="com.automationpractice.tests.HomePageTest"/>
-        <method signature="HomePageTest.navigateToLoginPage()[pri:1, instance:com.automationpractice.tests.HomePageTest@34b7bfc0]" name="navigateToLoginPage" class="com.automationpractice.tests.HomePageTest"/>
-        <method signature="LoginFunctionalityTest.forgotPasswordWithInvalidCredentials()[pri:2, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="forgotPasswordWithInvalidCredentials" class="com.automationpractice.tests.LoginFunctionalityTest"/>
-        <method signature="LoginFunctionalityTest.signInWithInvalidCredentials()[pri:1, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="signInWithInvalidCredentials" class="com.automationpractice.tests.LoginFunctionalityTest"/>
-        <method signature="LoginFunctionalityTest.signOut()[pri:3, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="signOut" class="com.automationpractice.tests.LoginFunctionalityTest"/>
+        <method signature="HomePageTest.Search()[pri:0, instance:com.automationpractice.tests.HomePageTest@57baeedf]" name="Search" class="com.automationpractice.tests.HomePageTest"/>
+        <method signature="HomePageTest.navigateToLoginPage()[pri:0, instance:com.automationpractice.tests.HomePageTest@57baeedf]" name="navigateToLoginPage" class="com.automationpractice.tests.HomePageTest"/>
+        <method signature="LoginFunctionalityTest.forgotPasswordWithInvalidCredentials()[pri:2, instance:com.automationpractice.tests.LoginFunctionalityTest@343f4d3d]" name="forgotPasswordWithInvalidCredentials" class="com.automationpractice.tests.LoginFunctionalityTest"/>
+        <method signature="LoginFunctionalityTest.signInWithInvalidCredentials()[pri:1, instance:com.automationpractice.tests.LoginFunctionalityTest@343f4d3d]" name="signInWithInvalidCredentials" class="com.automationpractice.tests.LoginFunctionalityTest"/>
+        <method signature="LoginFunctionalityTest.signOut()[pri:3, instance:com.automationpractice.tests.LoginFunctionalityTest@343f4d3d]" name="signOut" class="com.automationpractice.tests.LoginFunctionalityTest"/>
       </group> <!-- smoke-test -->
     </groups>
-    <test name="Surefire test" duration-ms="71691" started-at="2020-03-21T22:02:26Z" finished-at="2020-03-21T22:03:38Z">
+    <test name="GroupTest" duration-ms="26977" started-at="2020-07-04T14:23:48 CDT" finished-at="2020-07-04T14:24:15 CDT">
       <class name="com.automationpractice.tests.HomePageTest">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.automationpractice.tests.HomePageTest@34b7bfc0]" name="beforeMethod" is-config="true" duration-ms="3200" started-at="2020-03-21T17:02:42Z" finished-at="2020-03-21T17:02:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="navigateToLoginPage()[pri:1, instance:com.automationpractice.tests.HomePageTest@34b7bfc0]" name="navigateToLoginPage" duration-ms="2892" started-at="2020-03-21T17:02:45Z" finished-at="2020-03-21T17:02:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateToLoginPage -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.automationpractice.tests.HomePageTest@34b7bfc0]" name="afterMethod" is-config="true" duration-ms="4806" started-at="2020-03-21T17:02:48Z" finished-at="2020-03-21T17:02:52Z">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.String)[pri:0, instance:com.automationpractice.tests.HomePageTest@57baeedf]" name="beforeMethod" is-config="true" duration-ms="6638" started-at="2020-07-04T14:23:48 CDT" finished-at="2020-07-04T14:23:55 CDT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=navigateToLoginPage status=SUCCESS method=HomePageTest.navigateToLoginPage()[pri:1, instance:com.automationpractice.tests.HomePageTest@34b7bfc0] output={null}]]]>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[qa]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.automationpractice.tests.HomePageTest@34b7bfc0]" name="beforeMethod" is-config="true" duration-ms="3959" started-at="2020-03-21T17:03:05Z" finished-at="2020-03-21T17:03:09Z">
-          <reporter-output>
-          </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="Search()[pri:2, instance:com.automationpractice.tests.HomePageTest@34b7bfc0]" name="Search" duration-ms="2879" started-at="2020-03-21T17:03:09Z" finished-at="2020-03-21T17:03:12Z">
+        <test-method status="PASS" signature="Search()[pri:0, instance:com.automationpractice.tests.HomePageTest@57baeedf]" name="Search" duration-ms="2805" started-at="2020-07-04T14:23:55 CDT" finished-at="2020-07-04T14:23:58 CDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Search -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.automationpractice.tests.HomePageTest@34b7bfc0]" name="afterMethod" is-config="true" duration-ms="9327" started-at="2020-03-21T17:03:12Z" finished-at="2020-03-21T17:03:22Z">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.String)[pri:0, instance:com.automationpractice.tests.HomePageTest@57baeedf]" name="beforeMethod" is-config="true" duration-ms="3819" started-at="2020-07-04T14:23:58 CDT" finished-at="2020-07-04T14:24:01 CDT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Search status=SUCCESS method=HomePageTest.Search()[pri:2, instance:com.automationpractice.tests.HomePageTest@34b7bfc0] output={null}]]]>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[qa]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.automationpractice.tests.HomePageTest@34b7bfc0]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-03-21T17:03:22Z" finished-at="2020-03-21T17:03:22Z">
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="navigateToLoginPage()[pri:0, instance:com.automationpractice.tests.HomePageTest@57baeedf]" name="navigateToLoginPage" duration-ms="1957" started-at="2020-07-04T14:24:01 CDT" finished-at="2020-07-04T14:24:03 CDT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterClass -->
+        </test-method> <!-- navigateToLoginPage -->
       </class> <!-- com.automationpractice.tests.HomePageTest -->
       <class name="com.automationpractice.tests.LoginFunctionalityTest">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="beforeTest" is-config="true" duration-ms="15131" started-at="2020-03-21T17:02:11Z" finished-at="2020-03-21T17:02:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="beforeMethod" is-config="true" duration-ms="4475" started-at="2020-03-21T17:02:26Z" finished-at="2020-03-21T17:02:30Z">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.String)[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@343f4d3d]" name="beforeMethod" is-config="true" duration-ms="6482" started-at="2020-07-04T14:23:48 CDT" finished-at="2020-07-04T14:23:55 CDT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[qa]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="signInWithInvalidCredentials()[pri:1, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="signInWithInvalidCredentials" duration-ms="5514" started-at="2020-03-21T17:02:30Z" finished-at="2020-03-21T17:02:36Z">
+        <test-method status="PASS" signature="signInWithInvalidCredentials()[pri:1, instance:com.automationpractice.tests.LoginFunctionalityTest@343f4d3d]" name="signInWithInvalidCredentials" duration-ms="4951" started-at="2020-07-04T14:23:55 CDT" finished-at="2020-07-04T14:24:00 CDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signInWithInvalidCredentials -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="afterMethod" is-config="true" duration-ms="5548" started-at="2020-03-21T17:02:36Z" finished-at="2020-03-21T17:02:42Z">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.String)[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@343f4d3d]" name="beforeMethod" is-config="true" duration-ms="3442" started-at="2020-07-04T14:24:00 CDT" finished-at="2020-07-04T14:24:03 CDT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=signInWithInvalidCredentials status=SUCCESS method=LoginFunctionalityTest.signInWithInvalidCredentials()[pri:1, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae] output={null}]]]>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[qa]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="beforeMethod" is-config="true" duration-ms="3243" started-at="2020-03-21T17:02:52Z" finished-at="2020-03-21T17:02:56Z">
-          <reporter-output>
-          </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="forgotPasswordWithInvalidCredentials()[pri:2, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="forgotPasswordWithInvalidCredentials" duration-ms="4838" started-at="2020-03-21T17:02:56Z" finished-at="2020-03-21T17:03:01Z">
+        <test-method status="PASS" signature="forgotPasswordWithInvalidCredentials()[pri:2, instance:com.automationpractice.tests.LoginFunctionalityTest@343f4d3d]" name="forgotPasswordWithInvalidCredentials" duration-ms="4086" started-at="2020-07-04T14:24:03 CDT" finished-at="2020-07-04T14:24:07 CDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- forgotPasswordWithInvalidCredentials -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="afterMethod" is-config="true" duration-ms="4835" started-at="2020-03-21T17:03:01Z" finished-at="2020-03-21T17:03:05Z">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String, java.lang.String)[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@343f4d3d]" name="beforeMethod" is-config="true" duration-ms="3311" started-at="2020-07-04T14:24:07 CDT" finished-at="2020-07-04T14:24:10 CDT">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=forgotPasswordWithInvalidCredentials status=SUCCESS method=LoginFunctionalityTest.forgotPasswordWithInvalidCredentials()[pri:2, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae] output={null}]]]>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[qa]]>
               </value>
             </param>
           </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="beforeMethod" is-config="true" duration-ms="3282" started-at="2020-03-21T17:03:22Z" finished-at="2020-03-21T17:03:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="signOut()[pri:3, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="signOut" duration-ms="8123" started-at="2020-03-21T17:03:25Z" finished-at="2020-03-21T17:03:33Z">
+        <test-method status="PASS" signature="signOut()[pri:3, instance:com.automationpractice.tests.LoginFunctionalityTest@343f4d3d]" name="signOut" duration-ms="4672" started-at="2020-07-04T14:24:10 CDT" finished-at="2020-07-04T14:24:15 CDT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signOut -->
-        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="afterMethod" is-config="true" duration-ms="4753" started-at="2020-03-21T17:03:33Z" finished-at="2020-03-21T17:03:38Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=signOut status=SUCCESS method=LoginFunctionalityTest.signOut()[pri:3, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-03-21T17:03:38Z" finished-at="2020-03-21T17:03:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.automationpractice.tests.LoginFunctionalityTest@67b6d4ae]" name="afterSuite" is-config="true" duration-ms="1" started-at="2020-03-21T17:03:38Z" finished-at="2020-03-21T17:03:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterSuite -->
       </class> <!-- com.automationpractice.tests.LoginFunctionalityTest -->
-    </test> <!-- Surefire test -->
-  </suite> <!-- Surefire suite -->
+    </test> <!-- GroupTest -->
+  </suite> <!-- GroupRun -->
 </testng-results>

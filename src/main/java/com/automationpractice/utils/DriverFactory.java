@@ -1,7 +1,7 @@
 package com.automationpractice.utils;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
+import io.github.bonigarcia.wdm.managers.FirefoxDriverManager;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,16 +18,16 @@ import java.net.URL;
 
 public class DriverFactory {
 
-public enum BrowserType{
-    CHROME,
-    FIREFOX,
-    CLOUD_CHROME,
-    CLOUD_FIREFOX,
-    CLOUD_IE,
-    GRID_CHROME,
-    GRID_FIREFOX,
-    GRID_IE
-}
+    public enum BrowserType{
+        CHROME,
+        FIREFOX,
+        CLOUD_CHROME,
+        CLOUD_FIREFOX,
+        CLOUD_IE,
+        GRID_CHROME,
+        GRID_FIREFOX,
+        GRID_IE
+    }
 
     private static DriverFactory instance = null;
 
@@ -55,15 +55,18 @@ public enum BrowserType{
             instance = new DriverFactory();
         }
 
-        if(browserName.equalsIgnoreCase(BrowserType.CHROME.toString())){
+        if(browserName.equalsIgnoreCase("chrome")){
             ChromeDriverManager.chromedriver().setup();
             instance.driver.set(new ChromeDriver());
         }
-        else if(browserName.equalsIgnoreCase(BrowserType.FIREFOX.toString())){
+        else if(browserName.equalsIgnoreCase("firefox")){
+            DesiredCapabilities dc = new DesiredCapabilities();
+            dc.setCapability("marionatte", false);
+            dc.setPlatform(Platform.IOS);
             FirefoxDriverManager.firefoxdriver().setup();
             instance.driver.set(new FirefoxDriver());
         }
-        else if(browserName.equalsIgnoreCase(BrowserType.CLOUD_CHROME.toString())){
+        else if(browserName.equalsIgnoreCase("cloud_chrome_64")){
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("browser", "Chrome");
             caps.setCapability("browser_version", "64.0");
@@ -76,7 +79,7 @@ public enum BrowserType{
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-        } else if(browserName.equalsIgnoreCase(BrowserType.CLOUD_FIREFOX.toString())){
+        } else if(browserName.equalsIgnoreCase("cloud_firefox_64")){
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("browser", "Firefox");
             caps.setCapability("browser_version", "64.0");
@@ -90,7 +93,7 @@ public enum BrowserType{
                 e.printStackTrace();
             }
         }
-        else if(browserName.equalsIgnoreCase(BrowserType.CLOUD_IE.toString())){
+        else if(browserName.equalsIgnoreCase("cloud_ie_11")){
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("browser", "IE");
             caps.setCapability("browser_version", "11.0");
@@ -102,7 +105,7 @@ public enum BrowserType{
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-        }else if(browserName.equalsIgnoreCase(BrowserType.GRID_CHROME.toString())){
+        }else if(browserName.equalsIgnoreCase("grid_chrome_16")){
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setPlatform(Platform.ANY);
             caps.setBrowserName("chrome");
@@ -112,7 +115,7 @@ public enum BrowserType{
                 e.printStackTrace();
             }
         }
-        else if(browserName.equalsIgnoreCase(BrowserType.GRID_FIREFOX.toString())){
+        else if(browserName.equalsIgnoreCase("grid_firefox_16")){
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setPlatform(Platform.ANY);
             caps.setBrowserName("firefox");
@@ -122,7 +125,7 @@ public enum BrowserType{
                 e.printStackTrace();
             }
         }
-        else if(browserName.equalsIgnoreCase(BrowserType.GRID_IE.toString())){
+        else if(browserName.equalsIgnoreCase("grid_ie_16")){
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setPlatform(Platform.ANY);
             caps.setBrowserName("internet explorer");
