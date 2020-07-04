@@ -46,7 +46,8 @@ buildNumber.properties
 /local.properties/
 .loadpath
 .factorypath
-/.idea/
+*.idea/
+*.jpeg
 ##############################
 ## OS X
 ##############################
