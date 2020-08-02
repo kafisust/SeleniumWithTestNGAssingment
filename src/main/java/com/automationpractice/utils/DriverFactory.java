@@ -5,6 +5,7 @@ import io.github.bonigarcia.wdm.managers.FirefoxDriverManager;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -57,7 +58,9 @@ public class DriverFactory {
 
         if(browserName.equalsIgnoreCase("chrome")){
             ChromeDriverManager.chromedriver().setup();
-            instance.driver.set(new ChromeDriver());
+            ChromeOptions options = new ChromeOptions();
+            options.setHeadless(true);
+            instance.driver.set(new ChromeDriver(options));
         }
         else if(browserName.equalsIgnoreCase("firefox")){
             DesiredCapabilities dc = new DesiredCapabilities();
