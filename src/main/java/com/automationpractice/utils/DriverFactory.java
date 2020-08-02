@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -67,7 +68,9 @@ public class DriverFactory {
             dc.setCapability("marionatte", false);
             dc.setPlatform(Platform.IOS);
             FirefoxDriverManager.firefoxdriver().setup();
-            instance.driver.set(new FirefoxDriver());
+            FirefoxOptions options = new FirefoxOptions();
+            options.setHeadless(true);
+            instance.driver.set(new FirefoxDriver(options));
         }
         else if(browserName.equalsIgnoreCase("cloud_chrome_64")){
             DesiredCapabilities caps = new DesiredCapabilities();

@@ -1,4 +1,5 @@
-image: markhobson/maven-chrome:jdk-11
+--image: markhobson/maven-chrome:jdk-11
+image: rvanvas/maven-chrome-firefox:jdk-11
 
 stages:
   - build

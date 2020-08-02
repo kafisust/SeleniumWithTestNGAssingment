@@ -22,6 +22,5 @@ public class HomePageTest extends ScriptBaseTestNG {
         homePage.searchFunctionality(randomTestData.randomEmail());
         homePage.verifyNoResultFound();
         homePage.isPageReady();
-
     }
 }
