@@ -21,3 +21,4 @@ test:
   stage: test
   script:
     - mvn test -Dtest=com.automationpractice.tests.HomePageTest
+    - mvn test -Dtest=com.automationpractice.tests.LoginFunctionalityTest
