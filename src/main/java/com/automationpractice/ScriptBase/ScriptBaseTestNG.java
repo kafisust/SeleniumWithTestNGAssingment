@@ -43,7 +43,7 @@ public class ScriptBaseTestNG {
     //chrome,chromeHeadless,firefox,ie,grid_chrome_16,grid_firefox_16,grid_ie_16
     @BeforeMethod(alwaysRun = true)
     @Parameters({"browserName", "env"})
-    public void beforeMethod(@Optional(value = ("chrome")) String browserName, @Optional(value = ("stage")) String env) throws InterruptedException, IOException {
+    public void beforeMethod(@Optional(value = ("chrome")) String browserName, @Optional(value = ("qa")) String env) throws InterruptedException, IOException {
 
         driver = DriverFactory.getInstance(browserName).getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -62,7 +62,7 @@ public class ScriptBaseTestNG {
 
     @AfterTest
     public void endReport() {
-
+        DriverFactory.getInstance().removeDriver();
         //extent.flush();
     }
 
