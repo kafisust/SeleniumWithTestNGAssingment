@@ -65,8 +65,6 @@ public class DriverFactory {
         }
         else if(browserName.equalsIgnoreCase("firefox")){
             DesiredCapabilities dc = new DesiredCapabilities();
-            dc.setCapability("marionatte", false);
-            dc.setPlatform(Platform.IOS);
             FirefoxDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
             options.setHeadless(true);
