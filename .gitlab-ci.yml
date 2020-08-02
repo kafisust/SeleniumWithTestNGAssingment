@@ -2,7 +2,9 @@ image: markhobson/maven-chrome:jdk-11
 
 stages:
   - build
-  - test
+  - smoke-test
+  - regression
+
 
 variables:
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
@@ -17,8 +19,12 @@ build:
   script:
     - mvn compile
 
-test:
-  stage: test
+smoke-test:
+  stage: smoke check
   script:
-    - mvn test -Dtest=com.automationpractice.tests.HomePageTest
-    - mvn test -Dtest=com.automationpractice.tests.LoginFunctionalityTest
+    - mvn test -Dsuite=smoke-test -Denvironment=test
+
+contrato:
+  stage: regression check
+  script:
+    - mvn test -Dsuite=regression -Denvironment=test
