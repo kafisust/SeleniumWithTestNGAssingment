@@ -58,6 +58,11 @@ public class DriverFactory {
 
         if(browserName.equalsIgnoreCase("chrome")){
             ChromeDriverManager.chromedriver().setup();
+            instance.driver.set(new ChromeDriver());
+        }
+
+        if(browserName.equalsIgnoreCase("chromeHeadless")){
+            ChromeDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.setHeadless(true);
             instance.driver.set(new ChromeDriver(options));
