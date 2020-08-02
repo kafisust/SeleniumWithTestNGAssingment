@@ -9,7 +9,6 @@
         <groups>
             <run>
                 <include name = "smoke-test"></include>
-                <include name = "regression"></include>
             </run>
         </groups>
 

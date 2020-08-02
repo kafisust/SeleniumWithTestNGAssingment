@@ -17,7 +17,7 @@ public class LoginFunctionalityTest extends ScriptBaseTestNG {
         homePage.verifyPageTitle(Constants.LOGIN_PAGE_TITLE);
     }
 
-    @Test(groups = {"smoke-test"}, priority=2)
+    @Test(groups = {"smoke"}, priority=2)
     public void forgotPasswordWithInvalidCredentials() {
         //test = extent.createTest("forgotPasswordWithInvalidCredentials", "PASSED test case");
         homePage.navigateToLoginPage();
@@ -26,7 +26,7 @@ public class LoginFunctionalityTest extends ScriptBaseTestNG {
         assertTrue(loginPage.isAlertBarDangerDisplayed(), "Error message was not displayed");
     }
 
-    @Test(groups = {"smoke-test"}, priority=3)
+    @Test(groups = {"smoke"}, priority=3)
     public void signOut() {
         //test = extent.createTest("signOut", "PASSED test case");
         homePage.navigateToLoginPage();
