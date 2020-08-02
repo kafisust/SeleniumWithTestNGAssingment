@@ -3,7 +3,7 @@ image: markhobson/maven-chrome:jdk-11
 stages:
   - build
   - smoke-test
-  - regression
+  - regression-test
 
 
 variables:
@@ -20,11 +20,11 @@ build:
     - mvn compile
 
 smoke-test:
-  stage: smoke check
+  stage: smoke-test
   script:
     - mvn test -Dsuite=smoke-test -Denvironment=test
 
 contrato:
-  stage: regression check
+  stage: regression-test
   script:
     - mvn test -Dsuite=regression -Denvironment=test
