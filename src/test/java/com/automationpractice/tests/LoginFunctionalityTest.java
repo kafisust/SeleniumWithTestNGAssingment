@@ -32,7 +32,7 @@ public class LoginFunctionalityTest extends ScriptBaseTestNG {
         homePage.navigateToLoginPage();
         homePage.verifyPageTitle("Login - My Store");
         loginPage.signInWithCredentials("d1@grr.la","d1@grr.la1");
-        loginPage.signOut();
+        //loginPage.signOut();
         assertTrue(loginPage.isSignInLinkDisplayed(), "SignIn link was not displayed after sign out action");
     }
 }
