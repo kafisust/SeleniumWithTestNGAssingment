@@ -8,7 +8,7 @@ import static org.testng.Assert.assertTrue;
 
 public class LoginFunctionalityTest extends ScriptBaseTestNG {
 
-    @Test(groups = {"smoke-test","regression"}, priority=1)
+    @Test(groups = {"regression"}, priority=1)
     public void signInWithInvalidCredentials() {
         //test = extent.createTest("signInWithInvalidCredentials", "PASSED test case");
         homePage.navigateToLoginPage();

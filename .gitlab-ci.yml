@@ -22,9 +22,9 @@ build:
 smoke-test:
   stage: smoke-test
   script:
-    - mvn test -Dsuite=smoke-test -Denvironment=test
+    - mvn test -Dsuite=smoke-test -Denvironment=qa
 
-contrato:
+regression-test:
   stage: regression-test
   script:
-    - mvn test -Dsuite=regression -Denvironment=test
+    - mvn test -Dsuite=regression -Denvironment=qa
