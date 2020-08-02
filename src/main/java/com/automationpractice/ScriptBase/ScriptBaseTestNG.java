@@ -62,7 +62,6 @@ public class ScriptBaseTestNG {
 
     @AfterTest
     public void endReport() {
-        DriverFactory.getInstance().removeDriver();
         //extent.flush();
     }
 
