@@ -4,7 +4,7 @@ pipelines:
   default:
     - step:
         caches:
-          - .m2/repository/
-          - target/
+          - maven
+         
         script: # Modify the commands below to build your repository.
           - mvn clean test -Dsuite=smoke -Denvironment=qa # -B batch mode makes Maven less verbose
