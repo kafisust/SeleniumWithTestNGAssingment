@@ -28,9 +28,5 @@ pipelines:
               name: "Full Suite"
               caches:
                 - maven
-              services:
-                - selenium-hub
-                - chromenodeone
-                - firefoxnodeone
               script:
                 - mvn clean test -Dsuite=full -Denvironment=stage
