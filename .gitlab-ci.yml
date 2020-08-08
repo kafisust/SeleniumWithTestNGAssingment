@@ -26,3 +26,8 @@ regressionsuite:
   stage: test
   script:
     - mvn test -Dsuite=regression -Denvironment=stage
+
+fullsuite:
+  stage: test
+  script:
+    - mvn test -Dsuite=full -Denvironment=stage
