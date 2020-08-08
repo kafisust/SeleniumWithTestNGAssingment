@@ -1,8 +1,10 @@
 image: markhobson/maven-chrome:jdk-11
 
-stages:
-  - build
-  - test
+pipelines:
+  default:
+    - step:
+        build
+      test
 
 variables:
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
