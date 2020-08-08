@@ -16,8 +16,6 @@ pipelines:
               name: "Smoke Suite"
               caches:
                 - maven
-                - .m2/repository/
-                - target/
               script:
                 - mvn clean test -Dsuite=smoke -Denvironment=qa
           - step:
@@ -43,9 +41,18 @@ definitions:
       ports:
         - "4444:4444"
 
-
     firefoxnodeone:
       image: selenium/node-firefox:latest
+      volumes:
+        - /dev/shm:/dev/shm
+      depends_on:
+        - selenium-hub
+      environment:
+        - HUB_HOST=selenium-hub
+        - HUB_PORT=4444
+
+    chromenodeone:
+      image: selenium/node-chrome:latest
       volumes:
         - /dev/shm:/dev/shm
       depends_on:
