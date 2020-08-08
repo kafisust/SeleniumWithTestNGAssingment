@@ -4,7 +4,7 @@
 <suite name="Full Test Suite" verbose="1" parallel="classes" thread-count="2">
 
     <test name = "GroupTest">
-        <parameter name="browserName" value="grid_firefox_16"/>
+        <parameter name="browserName" value="firefox"/>
         <parameter name="env" value="stage"/>
         <groups>
             <run>
