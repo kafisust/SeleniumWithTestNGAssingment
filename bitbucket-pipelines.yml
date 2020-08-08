@@ -1,4 +1,4 @@
-image: markhobson/maven-firefox:jdk-11
+image: markhobson/maven-firefox
 pipelines:
   branches:
     master:
