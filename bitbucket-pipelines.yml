@@ -22,8 +22,6 @@ pipelines:
               name: "Regression Suite"
               caches:
                 - maven
-                - .m2/repository/
-                - target/
               script:
                 - mvn clean test -Dsuite=regression -Denvironment=qa
           - step:
@@ -37,26 +35,15 @@ definitions:
   services:
     selenium-hub:
       image: selenium/hub:latest
-      container_name: selenium-hub
-      ports:
-        - "4444:4444"
 
     firefoxnodeone:
       image: selenium/node-firefox:latest
-      volumes:
-        - /dev/shm:/dev/shm
-      depends_on:
-        - selenium-hub
       environment:
         - HUB_HOST=selenium-hub
         - HUB_PORT=4444
 
     chromenodeone:
       image: selenium/node-chrome:latest
-      volumes:
-        - /dev/shm:/dev/shm
-      depends_on:
-        - selenium-hub
       environment:
         - HUB_HOST=selenium-hub
         - HUB_PORT=4444
