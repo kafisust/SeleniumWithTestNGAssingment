@@ -35,6 +35,7 @@ definitions:
   services:
     selenium-hub:
       image: selenium/hub:latest
+     
 
     firefoxnodeone:
       image: selenium/node-firefox:latest
