@@ -39,16 +39,16 @@ definitions:
   services:
     selenium-hub:
       image: selenium/hub:latest
-     
+
 
     firefoxnodeone:
       image: selenium/node-firefox:3.141.59
       environment:
-        HUB_PORT_4444_TCP_ADDR: ${selenium-hub}
+        HUB_PORT_4444_TCP_ADDR: 127.0.0.1
         HUB_PORT_4444_TCP_PORT: "4444"
 
     chromenodeone:
       image: selenium/node-chrome:3.141.5
       environment:
-        HUB_PORT_4444_TCP_ADDR: ${selenium-hub}
+        HUB_PORT_4444_TCP_ADDR: 127.0.0.1
         HUB_PORT_4444_TCP_PORT: "4444"
