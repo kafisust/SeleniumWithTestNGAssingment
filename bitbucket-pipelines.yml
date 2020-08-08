@@ -39,11 +39,11 @@ definitions:
     firefoxnodeone:
       image: selenium/node-firefox:latest
       environment:
-        HUB_HOST=selenium-hub
-        HUB_PORT="4444"
+        HUB_PORT_4444_TCP_ADDR: 127.0.0.1
+        HUB_PORT_4444_TCP_PORT: "4444"
 
     chromenodeone:
       image: selenium/node-chrome:latest
       environment:
-        HUB_HOST=selenium-hub
-        HUB_PORT="4444"
+        HUB_PORT_4444_TCP_ADDR: 127.0.0.1
+        HUB_PORT_4444_TCP_PORT: "4444"
