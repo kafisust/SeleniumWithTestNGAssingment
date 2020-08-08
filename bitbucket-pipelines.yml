@@ -1,10 +1,26 @@
 image: markhobson/maven-chrome:jdk-11
-
 pipelines:
-  default:
-    - step:
-        caches:
-          - maven
-         
-        script: # Modify the commands below to build your repository.
-          - mvn clean test -Dsuite=smoke -Denvironment=qa # -B batch mode makes Maven less verbose
+  branches:
+    master:
+      - step:
+          name: "Build"
+          caches:
+            - maven
+          script:
+            - mvn clean
+          artifacts:
+            - build/**
+
+      - parallel:
+          - step:
+              name: "Smoke Suite"
+              caches:
+                - maven
+              script:
+                - mvn clean test -Dsuite=smoke -Denvironment=qa
+          - step:
+              name: "Regression Suite"
+              caches:
+                - maven
+              script:
+                - mvn clean test -Dsuite=regression -Denvironment=qa
