@@ -5,7 +5,7 @@
 
     <test name = "Regression Test">
         <parameter name="browserName" value="chrome"/>
-        <parameter name="env" value="qa"/>
+        <parameter name="env" value="stage"/>
         <groups>
             <run>
                 <include name = "regression"></include>
