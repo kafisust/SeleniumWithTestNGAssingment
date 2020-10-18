@@ -14,7 +14,6 @@ import java.util.Properties;
 
 public class PageBase extends WebElementUtils{
 
-    static final Integer DEFAULT_TIMEOUT = Integer.parseInt(System.getProperty("selenium.defaultTimeout", "5"));
     public Properties prop;
     public PageBase(){
         super();
@@ -23,16 +22,6 @@ public class PageBase extends WebElementUtils{
     public void verifyPageTitle(String expectedTitle){
         String title = driver.getTitle();
         Assert.assertEquals(expectedTitle,title);
-    }
-
-    public boolean isPageReady() {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
-            wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-        } catch (WebDriverException e) {
-            return false;
-        }
-        return true;
     }
 
     public Properties init_prop(String env) {
@@ -46,15 +35,8 @@ public class PageBase extends WebElementUtils{
                     case "qa":
                         path = "./src/main/resources/page.qa.properties";
                         break;
-                    case "dev":
-                        path = "./src/main/resources/page.dev.properties";
-                        break;
-                    case "stage":
-                        path = "./src/main/resources/page.properties";
-                        break;
                     default:
                         path = "./src/main/resources/page.properties";
-                        //System.out.println("Please pass the correct env value----> " + env);
                         break;
                 }
             }

@@ -3,18 +3,17 @@ package com.automationpractice.utils;
 import com.google.common.base.Function;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
-
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by Mohammad Majid on 6/17/2017.
- */
 public class SeleniumUtils {
 
     public static final int DEFAULT_WAIT_TIME = 10;
 
     protected WebDriver driver = DriverFactory.getInstance().getDriver();
+
+    public JavascriptExecutor js = (JavascriptExecutor)driver;
 
     public SeleniumUtils(){
     }
@@ -32,6 +31,15 @@ public class SeleniumUtils {
         delayFor(3000);
     }
 
+    public void jsEnterText(WebElement element, String DesiredText){
+        js.executeScript("document.evaluate(xpathExpresion, document, null, 9, null).singleNodeValue.innerHTML="+ DesiredText, element);
+    }
+
+    public void jsClick(WebElement element){
+        js.executeScript("arguments[0].click();", element);
+    }
+
+
     protected void highlight(WebElement element) {
         for (int i = 0; i < 2; i++) {
             JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -42,6 +50,16 @@ public class SeleniumUtils {
                     element, "");
             delayFor(200);
         }
+    }
+
+    public void selectByValue(WebElement element, String value){
+        Select select = new Select(element);
+        select.selectByValue(value);
+    }
+
+    public void selectByVisibleText(WebElement element, String value){
+        Select select = new Select(element);
+        select.selectByVisibleText(value);
     }
 
     public WebElement waitForElementDisplayed(final By locator, int timeToWaitInSec) {

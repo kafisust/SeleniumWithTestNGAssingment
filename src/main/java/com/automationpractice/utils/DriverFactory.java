@@ -14,22 +14,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Created by Mohammad Majid on 6/17/2017.
- */
 
 public class DriverFactory {
-
-    public enum BrowserType{
-        CHROME,
-        FIREFOX,
-        CLOUD_CHROME,
-        CLOUD_FIREFOX,
-        CLOUD_IE,
-        GRID_CHROME,
-        GRID_FIREFOX,
-        GRID_IE
-    }
 
     private static DriverFactory instance = null;
 
@@ -60,7 +46,7 @@ public class DriverFactory {
         if(browserName.equalsIgnoreCase("chrome")){
             ChromeDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-            options.setHeadless(true);
+            //options.setHeadless(true);
             instance.driver.set(new ChromeDriver(options));
         }
         else if(browserName.equalsIgnoreCase("firefox")){
